@@ -1,3 +1,4 @@
 ./.gitignore
 ./tests/__pycache__
-./jumpdrive/__pycache__
+./dspecies/__pycache__
+./dspecies/components/__pycache__

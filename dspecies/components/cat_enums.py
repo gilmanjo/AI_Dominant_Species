@@ -23,6 +23,7 @@ class TileBiome(Enum):
 	SAVANNAH = 5
 	WETLAND = 6
 	SEA = 7
+	TUNDRA = 8
 	NIL = 0
 
 class Element(Enum):

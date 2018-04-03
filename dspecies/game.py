@@ -3,7 +3,9 @@
 import sys
 sys.path.append("../components")
 
+import board
 from cat_enums import AnimalClass
+import d_const
 import os
 import random
 import types
@@ -19,6 +21,14 @@ class Game(object):
 		
 		# Get player information
 		self.players = []
+		self.init_players(num_players, player_names, player_acs)
+		
+		# TODO: Initialize game board
+		self.board = board.Board()
+		self.board.setup(self.players)
+
+	def init_players(self, num_players, player_names, player_acs):
+
 		for x in range(1, num_players + 1):	# 0 to player_num
 
 			# default if not running in terminal
@@ -36,8 +46,6 @@ class Game(object):
 				p.ac = AnimalClass[player_acs[x - 1]]
 
 			self.players.append(p)
-
-		# TODO: Initialize game board
 
 	def set_player_name(self, player_num):
 		return input("Name for Player " + str(player_num) + ":\t")
@@ -58,6 +66,7 @@ class Player(object):
 		super(Player, self).__init__()
 		self.name = name
 		self.ac = ac
+		self.vps = 0
 		
 	def __str__(self):
 		return "{} - {}".format(self.name, self.ac)
